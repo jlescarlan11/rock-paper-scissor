@@ -14,7 +14,8 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame() {
-  let getHumanChoice = () => prompt("Enter you choice").toUpperCase();
+  let getHumanChoice = () =>
+    prompt("Enter you choice\n(Rock, Paper, Scissor)").toUpperCase();
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -66,11 +67,13 @@ for (let i = 0; i < 5; i++) {
 }
 
 alert(
-  `Your score is : ${humanScore}\nComputer score is : ${computerScore}\n${
-    humanScore === computerScore
-      ? "tie"
-      : humanScore > computerScore
-      ? "you win!"
-      : "you lose!"
-  }`
+  console.log(
+    `Your score is : ${humanScore}\nComputer score is : ${computerScore}\n${
+      humanScore === computerScore
+        ? "tie"
+        : humanScore > computerScore
+        ? "you win!"
+        : "you lose!"
+    }`
+  )
 );
