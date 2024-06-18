@@ -38,7 +38,7 @@ function playGame() {
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
       } else {
-        console.log(`You loae! ${computerChoice} beats ${humanChoice}`);
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
         computerScore++;
       }
     } else if (
@@ -49,7 +49,7 @@ function playGame() {
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
       } else {
-        console.log(`You loae! ${computerChoice} beats ${humanChoice}`);
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
         computerScore++;
       }
     }
