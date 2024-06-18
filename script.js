@@ -6,7 +6,7 @@ let getComputerChoice = () => {
   } else if (choice === 2) {
     return "PAPER";
   } else {
-    return "SCISSOR";
+    return "SCISSORS";
   }
 };
 
@@ -14,66 +14,70 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame() {
-  let getHumanChoice = () =>
-    prompt("Enter you choice\n(Rock, Paper, Scissor)").toUpperCase();
+  for (let i = 0; i < 5; i++) {
+    let getHumanChoice = () =>
+      prompt("Enter you choice\n(Rock, Paper, Scissor)", "");
 
-  function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-      console.log(`No winner! ${humanChoice} can't beat ${computerChoice}`);
-    } else if (
-      (humanChoice === "PAPER" && computerChoice === "ROCK") ||
-      (computerChoice === "PAPER" && humanChoice === "ROCK")
-    ) {
-      if (humanChoice === "PAPER") {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++;
+    function playRound(humanChoice, computerChoice) {
+      if (humanChoice === computerChoice) {
+        return "tie";
+      } else if (
+        (humanChoice === "ROCK" && computerChoice === "SCISSORS") ||
+        (humanChoice === "PAPER" && computerChoice === "ROCK") ||
+        (humanChoice === "SCISSORS" && computerChoice === "PAPER")
+      ) {
+        return "player";
       } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
-      }
-    } else if (
-      (humanChoice === "SCISSOR" && computerChoice === "PAPER") ||
-      (computerChoice === "SCISSOR" && humanChoice === "PAPER")
-    ) {
-      if (humanChoice === "SCISSOR") {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++;
-      } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
-      }
-    } else if (
-      (humanChoice === "ROCK" && computerChoice === "SCISSOR") ||
-      (computerChoice === "ROCK" && humanChoice === "SCISSOR")
-    ) {
-      if (humanChoice === "ROCK") {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++;
-      } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
+        return "computer";
       }
     }
+
+    let humanSelection = getHumanChoice();
+    if (humanSelection !== null) {
+      humanSelection = humanSelection.toUpperCase();
+    } else {
+      alert("Cancelled");
+      console.log("Cancelled");
+      return;
+    }
+    let computerSelection = getComputerChoice();
+
+    const result = playRound(humanSelection, computerSelection);
+    if (result === "player") {
+      console.log(`You win! ${humanSelection} beats ${computerSelection}`);
+      alert(`You win! ${humanSelection} beats ${computerSelection}`);
+      humanScore++;
+    } else if (result === "computer") {
+      console.log(`You lose! ${computerSelection} beats ${humanSelection}`);
+      alert(`You lose! ${computerSelection} beats ${humanSelection}`);
+      computerScore++;
+    } else {
+      console.log(
+        `No winner! ${humanSelection} can't beat ${computerSelection}`
+      );
+      alert(`No winner! ${humanSelection} can't beat ${computerSelection}`);
+    }
   }
-
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-
-  playRound(humanSelection, computerSelection);
 }
 
-for (let i = 0; i < 5; i++) {
-  playGame();
-}
+playGame();
 
 alert(
-  console.log(
-    `Your score is : ${humanScore}\nComputer score is : ${computerScore}\n${
-      humanScore === computerScore
-        ? "tie"
-        : humanScore > computerScore
-        ? "you win!"
-        : "you lose!"
-    }`
-  )
+  `Your score is : ${humanScore}\nComputer score is : ${computerScore}\n${
+    humanScore === computerScore
+      ? "tie"
+      : humanScore > computerScore
+      ? "you win!"
+      : "you lose!"
+  }`
+);
+
+console.log(
+  `Your score is : ${humanScore}\nComputer score is : ${computerScore}\n${
+    humanScore === computerScore
+      ? "tie"
+      : humanScore > computerScore
+      ? "you win!"
+      : "you lose!"
+  }`
 );
