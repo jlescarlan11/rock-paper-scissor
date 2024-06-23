@@ -3,10 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
   </head>
   <body>
-    <h1>Open console to view the result.</h1>
+    <div id="play">
+      <div class="play-container">
+        <h2>Lets Play</h2>
+        <h1>ROCK PAPER SCISSORS</h1>
+        <div id="buttons">
+          <div class="button-container">
+            <img src="assets/rock.svg" alt="image of a rock" />
+            <button class="choices" id="rock">Rock</button>
+          </div>
+          <div class="button-container">
+            <img src="assets/paper.svg" alt="image of a piece of paper" />
+            <button class="choices" id="paper">Paper</button>
+          </div>
+          <div class="button-container">
+            <img src="assets/scissors.svg" alt="image of a scissors" />
+            <button class="choices" id="scissors">Scissors</button>
+          </div>
+        </div>
+        <div id="result">
+          <div class="result-container">
+            <p class="score" id="player-score">Player : 0</p>
+            <p id="result-text">Click a button to start.</p>
+            <p class="score" id="computer-score">Computer : 0</p>
+          </div>
+        </div>
+        <button class="restart">Restart</button>
+      </div>
+    </div>
+
+    <!-- <div id="container">
+      <button id="1">Click Me</button>
+      <button id="2">Click Me</button>
+      <button id="3">Click Me</button>
+    </div> -->
   </body>
 </html>
