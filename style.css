@@ -31,6 +31,12 @@ button {
 
 button.choices {
   width: 200px;
+  height: 200px;
+  padding: 30px;
+}
+
+img {
+  width: 100%;
 }
 
 #buttons {
@@ -45,13 +51,6 @@ button.choices {
   align-items: center;
   justify-content: center;
   gap: 10px;
-}
-
-img {
-  width: 200px;
-  padding: 30px;
-  border: 1px solid #959595;
-  border-radius: 10px;
 }
 
 #result {
