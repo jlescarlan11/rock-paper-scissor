@@ -26,7 +26,7 @@ function playRound(humanChoice, computerChoice) {
   } else if (
     (humanChoice === "rock" && computerChoice === "scissors") ||
     (humanChoice === "paper" && computerChoice === "rock") ||
-    (humanChoice === "scissor" && computerChoice === "paper")
+    (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     return "player";
   } else {
